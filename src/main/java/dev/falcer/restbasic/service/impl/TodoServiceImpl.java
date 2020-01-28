@@ -35,11 +35,11 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public boolean delete(Long id) {
-        try {
+        Todo result = todoRepository.findById(id).orElse(null);
+        if (result != null) {
             todoRepository.deleteById(id);
-        } catch (Exception e) {
-            e.printStackTrace();
+            return true;
         }
-        return true;
+        return false;
     }
 }
