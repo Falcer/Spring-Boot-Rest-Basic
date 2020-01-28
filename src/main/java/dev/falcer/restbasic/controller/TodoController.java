@@ -29,7 +29,7 @@ public class TodoController {
     }
 
     @DeleteMapping("/{id}")
-    boolean delete(@RequestParam("id") Long id) {
+    boolean delete(@PathVariable("id") Long id) {
         return todoService.delete(id);
     }
 }
